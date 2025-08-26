@@ -1,6 +1,7 @@
 # Parcial 1 Arquitectura de Software
 
 *Clase:* Arquitectura de Software - S2566-1005
+*Profesor:* Nicolas Ramirez Velez
 
 ## *Requisitos:*
 
