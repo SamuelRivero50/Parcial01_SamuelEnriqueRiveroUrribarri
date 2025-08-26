@@ -1,0 +1,38 @@
+{% extends 'flights/base.html' %}
+{% block title %}Registrar Vuelo{% endblock %}
+
+{% block content %}
+<!-- Registrar vuelos - Formulario con validaciones -->
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h1>Registrar vuelo</h1>
+        
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ request.POST.nombre|default:'' }}" required>
+            </div>
+            
+            <!-- HTML Select para tipo -->
+            <div class="mb-3">
+                <label for="tipo" class="form-label">Tipo:</label>
+                <select class="form-select" id="tipo" name="tipo" required>
+                    <option value="">seleccione</option>
+                    <option value="Nacional" {% if request.POST.tipo == 'Nacional' %}selected{% endif %}>Nacional</option>
+                    <option value="Internacional" {% if request.POST.tipo == 'Internacional' %}selected{% endif %}>Internacional</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label for="precio" class="form-label">Precio:</label>
+                <input type="number" class="form-control" id="precio" name="precio" step="0.01" min="0" value="{{ request.POST.precio|default:'' }}" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{% url 'flights:home' %}" class="btn btn-secondary">Volver</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

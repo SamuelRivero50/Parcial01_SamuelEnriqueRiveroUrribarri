@@ -1,0 +1,24 @@
+{% extends 'flights/base.html' %}
+{% block title %}Inicio - Vuelos{% endblock %}
+
+{% block content %}
+<!-- Zona de inicio - Template inicial con 3 enlaces -->
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h1>Sistema de Vuelos - Rionegro</h1>
+        <p>Seleccione una opcion:</p>
+        
+        <div class="list-group">
+            <a href="{% url 'flights:registrar' %}" class="list-group-item list-group-item-action">
+                Registrar vuelos
+            </a>
+            <a href="{% url 'flights:listar' %}" class="list-group-item list-group-item-action">
+                Listar vuelos
+            </a>
+            <a href="{% url 'flights:estadisticas' %}" class="list-group-item list-group-item-action">
+                Estadisticas de vuelos
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

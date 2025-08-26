@@ -1,0 +1,58 @@
+{% extends 'flights/base.html' %}
+{% block title %}Lista de Vuelos{% endblock %}
+
+{% block content %}
+<!-- Listar vuelos - Ordenados por precio con estilos específicos -->
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <h1>Lista de vuelos</h1>
+        
+        {% if flights %}
+            <p>Vuelos ordenados por precio:</p>
+            
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for flight in flights %}
+                    <tr>
+                        <td>{{ flight.id }}</td>
+                        <td>
+                            {% if flight.tipo == 'Internacional' %}
+                                <!-- Internacional: nombre en negrilla -->
+                                <span class="nombre-internacional">{{ flight.nombre }}</span>
+                            {% else %}
+                                {{ flight.nombre }}
+                            {% endif %}
+                        </td>
+                        <td>{{ flight.tipo }}</td>
+                        <td>
+                            {% if flight.tipo == 'Nacional' %}
+                                <!-- Nacional: precio en azul -->
+                                <span class="precio-nacional">${{ flight.precio|floatformat:0 }}</span>
+                            {% else %}
+                                ${{ flight.precio|floatformat:0 }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+            <p>Total: {{ flights|length }} vuelos</p>
+        {% else %}
+            <div class="alert alert-warning">
+                No hay vuelos registrados
+            </div>
+        {% endif %}
+
+        <a href="{% url 'flights:home' %}" class="btn btn-secondary">Volver</a>
+    </div>
+</div>
+{% endblock %}
