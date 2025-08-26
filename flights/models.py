@@ -16,4 +16,4 @@ class Flight(models.Model):
         return self.nombre
     
     class Meta:
-        ordering = ['precio']  # Ordenados por precio
+        ordering = ['precio']

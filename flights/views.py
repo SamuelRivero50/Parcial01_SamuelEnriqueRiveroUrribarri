@@ -44,8 +44,7 @@ def registrar_vuelo(request):
     return render(request, 'flights/registrar.html')
 
 def listar_vuelos(request):
-    # Ordenados por precio (menor precio primero)
-    flights = Flight.objects.all().order_by('precio')
+    flights = Flight.objects.all()  # Ya ordenados por precio (Meta.ordering)
     return render(request, 'flights/listar.html', {'flights': flights})
 
 def estadisticas_vuelos(request):
