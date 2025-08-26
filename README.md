@@ -19,7 +19,7 @@ Cree una aplicación web en Python utilizando Django que permita realizar las si
   
 **c. Registrar vuelos (25%)**: Cree un sistema que permita registrar vuelos. Cree un formulario que pida los datos de los vuelos, y luego regístrelos en la base de datos. **Nota:** haga las validaciones correspondientes. El tipo lo podría validar solo a nivel de la vista usando un HTML Select.
   
-**d. Listar vuelos (25%)**: Liste todos los vuelos con los siguientes datos: id, nombre, tipo y precio (ordenados por precio / el de menor precio que aparezca de primero). Para los vuelos tipo “Nacional” muestre el precio en <span style="color:blue">azul</span>. Y para los vuelos tipo “Internacional” muestre el nombre en **negrilla**.
+**d. Listar vuelos (25%)**: Liste todos los vuelos con los siguientes datos: id, nombre, tipo y precio (ordenados por precio / el de menor precio que aparezca de primero). Para los vuelos tipo “Nacional” muestre el precio en azul. Y para los vuelos tipo “Internacional” muestre el nombre en **negrilla**.
   
 **e. Estadísticas de vuelos (25%)**: Muestre cuantos vuelos nacionales e internacionales existen registrados en el sistema (por ejemplo: 3 Nacionales, 0 Internacionales). Además, muestre el precio promedio de los vuelos nacionales.
   
